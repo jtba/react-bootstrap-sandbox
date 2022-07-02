@@ -1,12 +1,14 @@
 {
-  "name": "react-bootstarp-sandbox",
+  "name": "react-bootstrap-sandbox",
   "version": "1.0.0",
   "description": "",
   "keywords": [],
   "main": "src/index.tsx",
   "dependencies": {
     "react": "18.0.0",
+    "react-bootstrap": "2.4.0",
     "react-dom": "18.0.0",
+    "react-router-dom": "6.3.0",
     "react-scripts": "4.0.3"
   },
   "devDependencies": {
