@@ -2,9 +2,10 @@ import { StrictMode } from "react";
 import * as ReactDOMClient from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import App from "./App";
+import Navigation from "./components/Navigation";
 import Home from "./components/Home";
 import Cards from "./components/Cards";
+import Tables from "./components/Tables";
 
 const rootElement = document.getElementById("root");
 const root = ReactDOMClient.createRoot(rootElement);
@@ -12,11 +13,11 @@ const root = ReactDOMClient.createRoot(rootElement);
 root.render(
   <StrictMode>
     <BrowserRouter>
+      <Navigation />
       <Routes>
-        <Route path="/" element={<App />}>
-          <Route index element={<Home />} />
-          <Route path="cards" element={<Cards />} />
-        </Route>
+        <Route path="/" element={<Home />} />
+        <Route path="cards" element={<Cards />} />
+        <Route path="tables" element={<Tables />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>

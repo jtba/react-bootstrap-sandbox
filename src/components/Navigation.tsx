@@ -1,23 +1,32 @@
-import Navbar from "react-bootstrap/Navbar";
-import Container from "react-bootstrap/Container";
+import { Navbar } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { Nav } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+
+const links = [
+  { url: "/", text: "Home" },
+  { url: "/cards", text: "Cards" },
+  { url: "/tables", text: "Tables" }
+];
 
 function Navigation(props) {
   return (
     <Navbar bg="dark" variant="dark" expand="sm">
       <Container>
-        <Navbar.Brand href="#home">Sandbox</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/">
+          Sandbox
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home </Nav.Link>
-            <Link to="/cards" className="nav-link">
-              Carsv2
-            </Link>
-            <Nav.Link as={Link} to="/cards">
-              Cards
-            </Nav.Link>
+            {links.map((link, index) => {
+              return (
+                <Nav.Link as={Link} to={link.url} key={index}>
+                  {link.text}
+                </Nav.Link>
+              );
+            })}
+            ;
           </Nav>
           {/* Right justified links*/}
           <Navbar.Text className="justify-content-end">
@@ -27,11 +36,6 @@ function Navigation(props) {
       </Container>
     </Navbar>
   );
-}
-
-function changeUrl(url: string) {
-  let navigate = useNavigate();
-  navigate(url);
 }
 
 export default Navigation;

@@ -1,7 +1,5 @@
-import Container from "react-bootstrap/Container";
+import { Container, Row, Col } from "react-bootstrap";
 import CardWithPicture from "./CardWithPicture";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 
 const cards = [
   {
@@ -54,7 +52,7 @@ function Home() {
       <Row>
         {cards.map((card, x) => {
           return (
-            <Col key={x} sm={6}>
+            <Col key={x} xs={6} sm={6} md={4} lg={3}>
               <CardWithPicture
                 image={card.img}
                 title={card.title}
